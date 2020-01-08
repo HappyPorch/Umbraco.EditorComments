@@ -376,4 +376,12 @@ MigrationBackup/
 # Ignore the Models Builder models out of date flag
 **/App_Data/Models/ood.flag
 
+# Ignore Umbraco folder
+**/Umbraco/
 
+# Ignore Media items
+**/Media/**/*
+!**/Media/Web.config
+
+# Ignore any plugins installed via Nuget
+**/App_Plugins/ModelsBuilder

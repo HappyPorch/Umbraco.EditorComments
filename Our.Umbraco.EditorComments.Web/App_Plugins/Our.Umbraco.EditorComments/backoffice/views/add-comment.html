@@ -1,0 +1,43 @@
+﻿<div ng-controller="Our.Umbraco.EditorComments.AddCommentController as vm">
+    <umb-load-indicator ng-if="vm.loading">
+    </umb-load-indicator>
+
+    <ng-form name="addCommentForm" val-form-manager>
+        <umb-editor-view ng-if="!vm.loading">
+            <umb-editor-header name="vm.headerName"
+                               name-locked="true"
+                               hide-alias="true"
+                               hide-icon="true"
+                               hide-description="true">
+            </umb-editor-header>
+            <umb-editor-container>
+                <umb-box>
+                    <umb-box-header title="{{vm.contentTitle}}">
+                    </umb-box-header>
+                    <umb-box-content>
+                        <umb-property data-element="property-{{property.alias}}"
+                                      ng-repeat="property in vm.comment.properties track by property.alias"
+                                      property="property">
+                            <umb-property-editor model="property">
+                            </umb-property-editor>
+                        </umb-property>
+                    </umb-box-content>
+                </umb-box>
+            </umb-editor-container>
+            <umb-editor-footer>
+                <umb-editor-footer-content-right>
+                    <umb-button type="button"
+                                button-style="link"
+                                label-key="general_close"
+                                action="vm.close()">
+                    </umb-button>
+                    <umb-button type="button"
+                                button-style="primary"
+                                label-key="general_submit"
+                                action="vm.submit()">
+                    </umb-button>
+                </umb-editor-footer-content-right>
+            </umb-editor-footer>
+        </umb-editor-view>
+    </ng-form>
+</div>

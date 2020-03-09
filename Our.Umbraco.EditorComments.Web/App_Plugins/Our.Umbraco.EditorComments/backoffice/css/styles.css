@@ -1,0 +1,84 @@
+﻿.editor-comments__button {
+    padding: 0 3px;
+    border-color: transparent;
+    background: none;
+    color: #817f85;
+}
+
+    .editor-comments__button:hover {
+        color: #2152a3;
+    }
+
+    .editor-comments__button.editor-comments__button--warning {
+        color: #ff9412;
+    }
+
+    .editor-comments__table > .umb-table-head > .umb-table-row > .umb-table-cell.text-right {
+        flex-direction: row-reverse;
+    }
+
+.editor-comments__row {
+    flex-wrap: wrap;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
+    .editor-comments__row.editor-comments__row--show {
+        border-left-color: #e9e9eb;
+        border-right-color: #e9e9eb;
+    }
+
+.editor-comments__row > .umb-table-cell {
+    margin: 14px;
+}
+
+.editor-comments__cell--status {
+    max-width: 80px;
+}
+
+.editor-comments__cell--property {
+    max-width: 160px;
+    color: #000;
+}
+
+.umb-table-cell.editor-comments__cell--content {
+    display: none;
+    flex: 1 1 100%;
+    flex-direction: column;
+    cursor: auto;
+    margin-top: 0;
+}
+
+    .umb-table-cell.editor-comments__cell--content > * {
+        overflow: visible;
+        white-space: normal;
+    }
+
+.editor-comments__row--show .umb-table-cell.editor-comments__cell--content {
+    display: flex;
+}
+
+.editor-comments__message  {
+    margin-bottom: 14px;
+}
+
+.editor-comments__replies {
+    margin-bottom: 14px;
+}
+
+    .editor-comments__replies > .umb-table-head > .umb-table-row {
+        color: #000;
+    }
+
+    .editor-comments__replies > .umb-table-body > .umb-table-row > .umb-table-cell {
+        flex-direction: column;
+    }
+
+        .editor-comments__replies > .umb-table-body > .umb-table-row > .umb-table-cell > * {
+            overflow: visible;
+            white-space: normal;
+        }
+
+        .editor-comments__replies > .umb-table-body > .umb-table-row > .umb-table-cell > strong {
+            margin: 7px 0;
+        }

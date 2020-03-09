@@ -1,0 +1,33 @@
+﻿{
+  "dashboards": [
+    {
+      "alias": "ourUmbracoEditorComments",
+      "view": "~/App_Plugins/Our.Umbraco.EditorComments/backoffice/views/content-app.html",
+      "sections": [ "content" ],
+      "weight": 30
+    }
+  ],
+
+  "contentApps": [
+    {
+      "name": "Comments",
+      "alias": "ourUmbracoEditorComments",
+      "weight": 111,
+      "icon": "icon-chat-active",
+      "view": "~/App_Plugins/Our.Umbraco.EditorComments/backoffice/views/content-app.html"
+    }
+  ],
+
+  "javascript": [
+    "~/App_Plugins/Our.Umbraco.EditorComments/backoffice/controllers/ContentAppController.js",
+    "~/App_Plugins/Our.Umbraco.EditorComments/backoffice/controllers/ViewCommentsController.js",
+    "~/App_Plugins/Our.Umbraco.EditorComments/backoffice/controllers/AddCommentController.js",
+    "~/App_Plugins/Our.Umbraco.EditorComments/backoffice/resources/editorCommentsResource.js",
+    "~/App_Plugins/Our.Umbraco.EditorComments/backoffice/directives/editorCommentsButton.js",
+    "~/App_Plugins/Our.Umbraco.EditorComments/backoffice/interceptors/editorCommentsInterceptor.js"
+  ],
+
+  "css": [
+    "~/App_Plugins/Our.Umbraco.EditorComments/backoffice/css/styles.css"
+  ]
+}

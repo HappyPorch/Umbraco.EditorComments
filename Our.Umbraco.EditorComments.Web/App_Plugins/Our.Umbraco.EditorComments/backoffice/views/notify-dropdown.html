@@ -1,0 +1,18 @@
+﻿<div ng-controller="Umbraco.PropertyEditors.DropdownFlexibleController">
+
+    <ng-form name="dropDownListForm">
+
+        <select name="dropDownList"
+                class="umb-property-editor umb-dropdown"
+                ng-change="updateSingleDropdownValue()"
+                ng-model="model.singleDropdownValue"
+                ng-options="item as item.value group by item.group for item in model.config.items"
+                ng-required="model.validation.mandatory">
+        </select>
+
+        <div ng-messages="dropDownListForm.dropDownList.$error" show-validation-on-submit>
+            <p class="help-inline" ng-message="required">{{mandatoryMessage}}</p>
+        </div>
+
+    </ng-form>
+</div>

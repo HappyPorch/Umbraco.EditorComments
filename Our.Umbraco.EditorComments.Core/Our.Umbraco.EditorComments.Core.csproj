@@ -233,12 +233,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\EditorCommentsComponent.cs" />
+    <Compile Include="Components\EditorCommentsComposer.cs" />
+    <Compile Include="Controllers\Api\EditorCommentsController.cs" />
+    <Compile Include="Dto\ChangeCommentStatusDto.cs" />
+    <Compile Include="Dto\CommentDto.cs" />
+    <Compile Include="Extensions\ConversionExtensions.cs" />
+    <Compile Include="Migrations\Migration_1_0_0.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\CommentStatus.cs" />
+    <Compile Include="Models\Node.cs" />
+    <Compile Include="Models\PropertyData.cs" />
+    <Compile Include="Models\PropertyType.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets" Condition="Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

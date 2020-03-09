@@ -1,0 +1,92 @@
+﻿<div ng-controller="Our.Umbraco.EditorComments.ContentAppController as vm">
+    <umb-box>
+        <umb-box-header title-key="Our.Umbraco.EditorComments_EditorComments"></umb-box-header>
+        <umb-box-content>
+            <div class="umb-table editor-comments__table" ng-if="vm.comments">
+                <div class="umb-table-head">
+                    <div class="umb-table-row">
+                        <div class="umb-table-cell not-fixed editor-comments__cell--status">
+                            <localize key="Our.Umbraco.EditorComments_Status"></localize>
+                        </div>
+                        <div class="umb-table-cell not-fixed editor-comments__cell--property" ng-if="vm.showAllComments">
+                            <localize key="Our.Umbraco.EditorComments_Item"></localize>
+                        </div>
+                        <div class="umb-table-cell not-fixed editor-comments__cell--property">
+                            <localize key="Our.Umbraco.EditorComments_Property"></localize>
+                        </div>
+                        <div class="umb-table-cell not-fixed">
+                            <localize key="Our.Umbraco.EditorComments_AddedBy"></localize>
+                        </div>
+                    </div>
+                </div>
+                <div class="umb-table-body">
+                    <div class="umb-table-row editor-comments__row" ng-class="{'editor-comments__row--show': comment.show}" ng-if="vm.comments.length" ng-repeat="comment in vm.comments">
+                        <div class="umb-table-cell not-fixed editor-comments__cell--status">
+                            <umb-badge size="xs"
+                                       color="{{comment.StatusColour}}"
+                                       ng-if="comment.ShowStatus">
+                                <localize key="Our.Umbraco.EditorComments.Status_{{comment.StatusName}}"></localize>
+                            </umb-badge>
+                        </div>
+                        <div class="umb-table-cell not-fixed editor-comments__cell--property" ng-if="vm.showAllComments">
+                            <a ng-click="vm.goToProperty($event, comment)" class="umb-table-body__link" href="#">{{comment.UmbracoNodeName}}</a>
+                        </div>
+                        <div class="umb-table-cell not-fixed editor-comments__cell--property">
+                            <a ng-click="vm.goToProperty($event, comment)" class="umb-table-body__link" href="#">{{comment.UmbracoNodePropertyName}}</a>
+                        </div>
+                        <div class="umb-table-cell not-fixed">
+                            <a class="umb-table-body__link" ng-click="comment.show = !comment.show">
+                                {{comment.CreateDateFormatted}} - {{comment.UserName}}
+                            </a>
+                        </div>
+                        <div class="umb-table-cell not-fixed editor-comments__cell--content">
+                            <div class="editor-comments__message" ng-bind-html="comment.Message">
+                            </div>
+                            <div class="umb-table editor-comments__replies" ng-if="comment.Replies.length">
+                                <div class="umb-table-head">
+                                    <div class="umb-table-row">
+                                        <div class="umb-table-cell not-fixed">
+                                            <localize key="Our.Umbraco.EditorComments_Replies"></localize>:
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="umb-table-body">
+                                    <div class="umb-table-row" ng-repeat="reply in comment.Replies">
+                                        <div class="umb-table-cell not-fixed">
+                                            <strong>
+                                                {{reply.CreateDateFormatted}} - {{reply.UserName}}
+                                            </strong>
+
+                                            <div ng-bind-html="reply.Message"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <umb-button type="button"
+                                            button-style="gray"
+                                            label-key="Our.Umbraco.EditorComments_Reply"
+                                            size="xs"
+                                            action="vm.replyToComment(comment.UmbracoNodePropertyId, comment.UmbracoNodePropertyName, comment.Id)"
+                                            ng-if="!comment.IsCompleted">
+                                </umb-button>
+                                <umb-button type="button"
+                                            button-style="primary"
+                                            label-key="Our.Umbraco.EditorComments_MarkAsCompleted"
+                                            size="xs"
+                                            action="vm.markAsCompleted(comment.Id)"
+                                            ng-if="!comment.IsCompleted">
+                                </umb-button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="umb-table-row umb-table-row--empty" ng-if="!vm.comments.length">
+                        <div class="umb-table-cell not-fixed">
+                            <localize key="Our.Umbraco.EditorComments_NoComments"></localize>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </umb-box-content>
+    </umb-box>
+</div>
